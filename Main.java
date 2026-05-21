@@ -2,17 +2,60 @@ package org.example;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+public class Board {
+    static void Board() {
+        protected char[][] cells;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+    public Board() {
+            cells = new char[3][3];
+            clear();
         }
-        aaaaa;
+
+        public boolean isCellEmpty(int x, int y) {
+            return cells[x][y] == ' ';
+        }
+
+        public void place(int x, int y, char marker) {
+            if (isCellEmpty(x, y)) {
+                cells[x][y] = marker;
+            }
+        }
+
+        public boolean isFull() {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (cells[i][j] == ' ') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public void clear() {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    cells[i][j] = ' ';
+                }
+            }
+        }
+
+        public void print() {
+            System.out.println("Current Board:");
+            System.out.println("-----------");
+            for (int i = 0; i < 3; i++) {
+                System.out.print("|");
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(" " + cells[i][j]);
+                    if (j < 2) System.out.print("|");
+                }
+                System.out.print("|");
+                System.out.println();
+                //if (i < 2) System.out.println("   |   |   ");
+            }
+            System.out.println("-----------");
+        }
+        }
+
     }
 }
