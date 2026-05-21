@@ -1,7 +1,9 @@
 package org.example;
 
 public class Board {
+    protected char[][] cells;
 
+    public Board() {
         cells = new char[3][3];
         clear();
     }
@@ -26,7 +28,7 @@ public class Board {
         }
         return true;
     }
-
+    //a
     public void clear() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -51,6 +53,4 @@ public class Board {
         System.out.println("-----------");
     }
 }
-
-
 
