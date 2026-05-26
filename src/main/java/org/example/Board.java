@@ -53,6 +53,6 @@ public class Board {
         System.out.println("-----------");
     }
     public void doNothing(){
-        // Testing the branches
+        // Testing the branches test 2
     }
 }
